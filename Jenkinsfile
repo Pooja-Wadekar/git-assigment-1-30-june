@@ -1,16 +1,14 @@
 pipeline {
-    agent any
+    agent {
+        label 'jnlp-agent'
+    }
 
     stages {
-        stage('Build') {
+        stage('Test JNLP Agent') {
             steps {
-                echo 'Build started'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deployment started'
+                sh 'hostname'
+                sh 'whoami'
+                echo 'Running on JNLP Agent'
             }
         }
     }
